@@ -29,7 +29,7 @@ func main() {
 
 	// oauth credential
 	goth.UseProviders(
-		google.New("504511383397-683g45fakmm2rhmh72m0pirii3s2hlbl.pat.New()apps.googleusercontent.com", "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", "http://localhost:3000/auth/google/callback", "email", "profile"),
+		google.New("504511383397-683g45fakmm2rhmh72m0pirii3s2hlbl.apps.googleusercontent.com", "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", "http://localhost:3000/auth/google/callback", "email", "profile"),
 	)
 
 	// router and server
