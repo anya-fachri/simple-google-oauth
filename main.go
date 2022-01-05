@@ -1,7 +1,7 @@
 package main
 
 import (
-	google_oauth "google_oauth/router"
+	app "google_oauth/app"
 	"log"
 	"net/http"
 
@@ -33,7 +33,7 @@ func main() {
 	)
 
 	// router and server
-	r := google_oauth.NewRouter().Route()
+	r := app.NewRouter().Route()
 	log.Println("listening on localhost:3000")
 	log.Fatal(http.ListenAndServe(":3000", r))
 }
