@@ -17,7 +17,7 @@ func main() {
 	// session config
 	key := "ThIs iS my kEY"
 	maxAge := 120 // 2 minutes
-	isProd := false
+	isProd := true
 
 	// store config
 	store := sessions.NewCookieStore([]byte(key))
