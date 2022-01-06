@@ -16,7 +16,7 @@ func main() {
 
 	// session config
 	key := "ThIs iS my kEY"
-	maxAge := 120 // 2 seconds
+	maxAge := 120 // 2 minutes
 	isProd := false
 
 	// store config

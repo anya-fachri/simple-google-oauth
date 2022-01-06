@@ -33,7 +33,6 @@ func (r *RouterImpl) Route() {
 			fmt.Fprintln(res, err)
 			return
 		}
-
 		ctx := context.Background()
 		err = r.UserAuthService.AddUser(ctx, &user)
 		if err != nil {

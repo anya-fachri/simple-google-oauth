@@ -39,5 +39,6 @@ func (repo *UserAuthRepositoryImpl) Add(ctx context.Context, userauth *model.Use
 	}
 	log.Printf("User %s has been added to database", userauth.Email)
 	userauth.Id = int(id)
+
 	return userauth, nil
 }
