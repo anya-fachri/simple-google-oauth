@@ -1,7 +1,8 @@
 package main
 
 import (
-	app "google_oauth/app"
+	"google_oauth/app"
+	"google_oauth/service"
 	"log"
 	"net/http"
 
@@ -15,7 +16,7 @@ func main() {
 
 	// session config
 	key := "ThIs iS my kEY"
-	maxAge := 86400 * 30 // 30 days
+	maxAge := 120 // 2 seconds
 	isProd := false
 
 	// store config
@@ -32,8 +33,13 @@ func main() {
 		google.New("504511383397-683g45fakmm2rhmh72m0pirii3s2hlbl.apps.googleusercontent.com", "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", "http://localhost:3000/auth/google/callback", "email", "profile"),
 	)
 
-	// router and server
-	r := app.NewRouter().Route()
+	db, err := app.NewDB()
+	if err != nil {
+		log.Fatal(err)
+	}
+	s := service.NewUserAuthServiceImpl(db)
+	r := app.NewRouter(s)
+	r.Route()
 	log.Println("listening on localhost:3000")
-	log.Fatal(http.ListenAndServe(":3000", r))
+	log.Fatal(http.ListenAndServe(":3000", r.Router))
 }
