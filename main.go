@@ -30,7 +30,7 @@ func main() {
 
 	// oauth credential
 	goth.UseProviders(
-		google.New("504511383397-683g45fakmm2rhmh72m0pirii3s2hlbl.apps.googleusercontent.com", "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", "http://localhost:3000/auth/google/callback", "email", "profile"),
+		google.New("ENTER-YOUR-CREDENTIALS", "HERE", "http://localhost:3000/auth/google/callback", "email", "profile"),
 	)
 
 	db, err := app.NewDB()
